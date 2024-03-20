@@ -35,24 +35,34 @@ function startServer(port) {
 
 app.get("/api/under10k" ,async (req,res)=>{
 const  data=  await under10k.find({})
-res.send(JSON.stringify(data));
+res.setHeader('Cache-Control', 'no-store'); // Disable caching
+
+res.status(200).json(data)
+
+
 })
 
 
 
 app.get("/api/bet10kto15k" ,async (req,res)=>{
     const  data=  await bet10kto15k.find({})
-    res.send(JSON.stringify(data));
+    res.setHeader('Cache-Control', 'no-store'); // Disable caching
+
+    res.status(200).json(data)
     })
 
 
 app.get("/api/bet15kto20k" ,async (req,res)=>{
     const  data=  await bet15kto20k.find({})
-    res.send(JSON.stringify(data));
+    res.setHeader('Cache-Control', 'no-store'); // Disable caching
+
+    res.status(200).json(data)
     })
 
 
 app.get("/api/above20k" ,async (req,res)=>{
     const  data=  await above20k.find({})
-    res.send(JSON.stringify(data));
+    res.setHeader('Cache-Control', 'no-store'); // Disable caching
+
+    res.status(200).json(data)
     })
